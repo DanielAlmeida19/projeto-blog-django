@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from django_summernote.models import AbstractAttachment
 
 from utils.rands import gen_new_slug
@@ -185,3 +186,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        if not self.is_published:
+            return reverse('blog:index')
+        return reverse('blog:post', args=(self.slug,))
