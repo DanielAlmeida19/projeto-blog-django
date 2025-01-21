@@ -160,6 +160,11 @@ img {
   margin: 0 auto;
 }
 
+/* CodeMirror */
+.CodeMirror{
+  height: auto !important;
+}
+
 /* Blog */
 body,
 html,
